@@ -1,1 +1,1 @@
-This is a sample application for educational purpose
+This is a sample application for educational purposes
