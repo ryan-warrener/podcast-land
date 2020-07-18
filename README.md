@@ -1,1 +1,1 @@
-# podcast-land
+This is a sample application or educational purpose
