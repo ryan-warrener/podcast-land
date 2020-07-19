@@ -3,6 +3,9 @@
 
   pool:
     vmImage: 'Ubuntu-latest'
+  
+  variables:
+    buildConfiguration: release
 
   steps:
   - task: DotNetCoreCLI@2
@@ -14,7 +17,7 @@
     inputs:
       command: 'publish'
       publishWebProjects: true
-      arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
       zipAfterPublish: true
   - task: PublishBuildArtifacts@1
     displayName: 'Drop artifact'
