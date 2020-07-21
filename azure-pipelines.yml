@@ -33,5 +33,5 @@
       applicationName: 'podcast-land'
       deploymentGroupName: 'linux-dg'
       deploymentRevisionSource: 'workspace'
-      revisionBundle: '$(Build.ArtifactStagingDirectory)\drop'
+      revisionBundle: '$(Build.ArtifactStagingDirectory)'
       bucketName: 'ryan-warrener-codedeploy'
