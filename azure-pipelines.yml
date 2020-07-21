@@ -32,6 +32,6 @@
       regionName: 'us-east-1'
       applicationName: 'podcast-land'
       deploymentGroupName: 'linux-dg'
-      deploymentRevisionSource: 's3'
+      deploymentRevisionSource: 'workspace'
       revisionBundle: '$(Build.ArtifactStagingDirectory)\drop'
       bucketName: 'ryan-warrener-codedeploy'
