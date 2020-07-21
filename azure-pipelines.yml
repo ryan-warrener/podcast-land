@@ -1,4 +1,5 @@
   trigger:
+
   - master
 
   pool:
@@ -25,3 +26,11 @@
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
       ArtifactName: 'drop'
       publishLocation: 'Container'
+  - task: CodeDeployDeployApplication@1
+    inputs:
+      awsCredentials: 'AWS CodeDeploy Bucket'
+      regionName: 'us-east-1'
+      applicationName: 'podcast-land'
+      deploymentGroupName: 'linux-dg'
+      deploymentRevisionSource: 's3'
+      bucketName: 'ryan-warrener-codedeploy'
