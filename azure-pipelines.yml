@@ -34,7 +34,7 @@
       includeRootFolder: true
       archiveType: 'tar'
       tarCompression: gz
-      archiveFile: '$(Build.ArtifactStagingDirectory)//codedeploy.tar.gz'
+      archiveFile: '$(Build.ArtifactStagingDirectory)//codedeploy.tar'
       replaceExistingArchive: true
 
   - task: CodeDeployDeployApplication@1
