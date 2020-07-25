@@ -26,8 +26,8 @@
   - task: PublishBuildArtifacts@1
     enabled: false
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'drop'
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy/app'
+      ArtifactName: 'app'
       publishLocation: 'Container'
 
   - task: CopyFiles@2
