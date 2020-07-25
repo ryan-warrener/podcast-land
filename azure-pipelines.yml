@@ -47,7 +47,7 @@
   - task: ArchiveFiles@2
     enabled: true
     inputs:
-      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/codedeploy/*.*'
+      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/codedeploy/'
       includeRootFolder: false
       archiveType: 'tar'
       tarCompression: gz
@@ -55,7 +55,7 @@
       replaceExistingArchive: true
 
   - task: PublishBuildArtifacts@1
-    enabled: true
+    enabled: false
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       ArtifactName: 'tar'
