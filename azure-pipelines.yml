@@ -18,7 +18,7 @@
     inputs:
       command: 'publish'
       publishWebProjects: true
-      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)\codedeploy\app'
+      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)//codedeploy//app'
       zipAfterPublish: true
   - task: PublishBuildArtifacts@1
     displayName: 'Drop artifact'
