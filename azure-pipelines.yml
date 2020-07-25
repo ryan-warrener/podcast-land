@@ -13,6 +13,7 @@
     displayName: 'Build'
     inputs:
       command: 'build'
+
   - task: DotNetCoreCLI@2
     displayName: 'Publish'
     inputs:
@@ -20,25 +21,22 @@
       publishWebProjects: true
       arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)//codedeploy//app'
       zipAfterPublish: true
+
   - task: CopyFiles@2
     inputs:
       SourceFolder: 'codedeploy'
       Contents: '**'
       TargetFolder: '$(Build.ArtifactStagingDirectory)//codedeploy'
+
   - task: ArchiveFiles@2
     inputs:
       rootFolderOrFile: '$(Build.ArtifactStagingDirectory)//codedeploy'
       includeRootFolder: true
       archiveType: 'tar'
+      tarCompression: gz
       archiveFile: '$(Build.ArtifactStagingDirectory)//codedeploy.tar.gz'
       replaceExistingArchive: true
-  - task: PublishBuildArtifacts@1
-    displayName: 'Drop artifact'
-    inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)//codedeploy.tar.gz'
-      ArtifactName: 'drop'
-      publishLocation: 'Container'
-  
+
   - task: CodeDeployDeployApplication@1
     inputs:
       awsCredentials: 'AWS CodeDeploy Bucket'
@@ -46,5 +44,5 @@
       applicationName: 'podcast-land'
       deploymentGroupName: 'linux-dg'
       deploymentRevisionSource: 'workspace'
-      revisionBundle: '$(System.ArtifactsDirectory)//drop//codedeploy.tar.gz'
+      revisionBundle: '$(Build.ArtifactStagingDirectory)//codedeploy.tar.gz'
       bucketName: 'ryan-warrener-codedeploy'
