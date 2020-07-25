@@ -44,7 +44,7 @@
       publishLocation: Container
 
   - task: ArchiveFiles@2
-    enabled: false
+    enabled: true
     inputs:
       rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/codedeploy/'
       includeRootFolder: false
