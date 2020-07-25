@@ -62,7 +62,7 @@
       publishLocation: Container
 
   - task: CodeDeployDeployApplication@1
-    enabled: false
+    enabled: true
     inputs:
       awsCredentials: 'AWS CodeDeploy Bucket'
       regionName: 'us-east-1'
