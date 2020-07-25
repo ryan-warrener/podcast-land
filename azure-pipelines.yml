@@ -37,6 +37,12 @@
       archiveFile: '$(Build.ArtifactStagingDirectory)//codedeploy.tar'
       replaceExistingArchive: true
 
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)//codedeploy.tar'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
+
   - task: CodeDeployDeployApplication@1
     inputs:
       awsCredentials: 'AWS CodeDeploy Bucket'
