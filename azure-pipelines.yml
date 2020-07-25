@@ -18,7 +18,7 @@
     inputs:
       command: 'publish'
       publishWebProjects: true
-      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)\codedeploy\app'
       zipAfterPublish: true
   - task: PublishBuildArtifacts@1
     displayName: 'Drop artifact'
@@ -33,5 +33,5 @@
       applicationName: 'podcast-land'
       deploymentGroupName: 'linux-dg'
       deploymentRevisionSource: 'workspace'
-      revisionBundle: '$(Build.ArtifactStagingDirectory)'
+      revisionBundle: '$(Build.ArtifactStagingDirectory)\codedeploy'
       bucketName: 'ryan-warrener-codedeploy'
