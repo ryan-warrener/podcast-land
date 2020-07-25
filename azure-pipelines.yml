@@ -50,7 +50,7 @@
       rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/codedeploy/'
       includeRootFolder: false
       archiveType: 'tar'
-      tarCompression: gz
+      tarCompression: none 
       archiveFile: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       replaceExistingArchive: true
 
