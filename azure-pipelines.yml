@@ -38,6 +38,7 @@
       TargetFolder: '$(Build.ArtifactStagingDirectory)/codedeploy/'
 
   - task: PublishBuildArtifacts@1
+    enabled: false
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy/'
       ArtifactName: 'codedeploy'
@@ -54,13 +55,14 @@
       replaceExistingArchive: true
 
   - task: PublishBuildArtifacts@1
+    enabled: true
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       ArtifactName: 'tar'
       publishLocation: Container
 
   - task: CodeDeployDeployApplication@1
-    enabled: true
+    enabled: false
     inputs:
       awsCredentials: 'AWS CodeDeploy Bucket'
       regionName: 'us-east-1'
