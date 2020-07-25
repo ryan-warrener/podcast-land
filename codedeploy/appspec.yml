@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 
 files:
-  - source: app/*
+  - source: app/s/
     destination: /var/www/html
 
 permissions:
