@@ -15,12 +15,12 @@
       command: 'build'
 
   - task: DotNetCoreCLI@2
-    enabled: false
+    enabled: true
     displayName: 'Publish'
     inputs:
       command: 'publish'
       publishWebProjects: true
-      arguments: '--configuration $(buildConfiguration)  --output $(Build.ArtifactStagingDirectory)'
+      arguments: '--configuration $(buildConfiguration)  --output $(Build.ArtifactStagingDirectory)/codedeploy/app'
       zipAfterPublish: true
 
   - task: PublishBuildArtifacts@1
