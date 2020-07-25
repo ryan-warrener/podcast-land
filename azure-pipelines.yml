@@ -55,7 +55,7 @@
       replaceExistingArchive: true
 
   - task: PublishBuildArtifacts@1
-    enabled: false
+    enabled: true
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       ArtifactName: 'tar'
