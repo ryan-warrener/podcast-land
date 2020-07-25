@@ -21,7 +21,7 @@
       command: 'publish'
       publishWebProjects: true
       arguments: '--configuration $(buildConfiguration)  --output $(Build.ArtifactStagingDirectory)/codedeploy/app'
-      zipAfterPublish: true
+      zipAfterPublish: false
 
   - task: PublishBuildArtifacts@1
     enabled: false
