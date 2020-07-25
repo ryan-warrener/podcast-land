@@ -16,36 +16,24 @@
 
   - task: DotNetCoreCLI@2
     enabled: true
-    displayName: 'Publish'
+    displayName: 'Publish app'
     inputs:
       command: 'publish'
       publishWebProjects: true
       arguments: '--configuration $(buildConfiguration)  --output $(Build.ArtifactStagingDirectory)/codedeploy/app'
       zipAfterPublish: false
 
-  - task: PublishBuildArtifacts@1
-    enabled: false
-    inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy/app'
-      ArtifactName: 'app'
-      publishLocation: 'Container'
-
   - task: CopyFiles@2
     enabled: true
+    displayName: 'copy codedeploy artifacts'
     inputs:
       SourceFolder: 'codedeploy/'
       Contents: '**'
       TargetFolder: '$(Build.ArtifactStagingDirectory)/codedeploy/'
 
-  - task: PublishBuildArtifacts@1
-    enabled: false
-    inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy/'
-      ArtifactName: 'codedeploy'
-      publishLocation: Container
-
   - task: ArchiveFiles@2
     enabled: true
+    displayName: 'create deployment package archive'
     inputs:
       rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/codedeploy/'
       includeRootFolder: false
@@ -54,15 +42,9 @@
       archiveFile: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       replaceExistingArchive: true
 
-  - task: PublishBuildArtifacts@1
-    enabled: false
-    inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
-      ArtifactName: 'tar'
-      publishLocation: Container
-
   - task: CodeDeployDeployApplication@1
     enabled: true
+    displayName: 'AWS CodeDeploy'
     inputs:
       awsCredentials: 'AWS CodeDeploy Bucket'
       regionName: 'us-east-1'
