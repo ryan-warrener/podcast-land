@@ -24,7 +24,7 @@
       zipAfterPublish: false
 
   - task: PublishBuildArtifacts@1
-    enabled: true
+    enabled: false
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy/app'
       ArtifactName: 'app'
@@ -55,7 +55,7 @@
       replaceExistingArchive: true
 
   - task: PublishBuildArtifacts@1
-    enabled: true
+    enabled: false
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       ArtifactName: 'tar'
