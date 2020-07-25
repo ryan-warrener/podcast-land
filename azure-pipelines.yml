@@ -1,5 +1,4 @@
   trigger:
-
   - master
 
   pool:
@@ -22,13 +21,21 @@
       arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/codedeploy/app'
       zipAfterPublish: false
 
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
+
   - task: CopyFiles@2
+    enabled: false
     inputs:
       SourceFolder: 'codedeploy/'
       Contents: '**'
       TargetFolder: '$(Build.ArtifactStagingDirectory)/codedeploy/'
 
   - task: ArchiveFiles@2
+    enabled: false
     inputs:
       rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/codedeploy/'
       includeRootFolder: false
@@ -38,6 +45,7 @@
       replaceExistingArchive: true
 
   - task: CodeDeployDeployApplication@1
+    enabled: false
     inputs:
       awsCredentials: 'AWS CodeDeploy Bucket'
       regionName: 'us-east-1'
