@@ -53,6 +53,12 @@
       archiveFile: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       replaceExistingArchive: true
 
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
+      ArtifactName: 'tar'
+      publishLocation: Container
+
   - task: CodeDeployDeployApplication@1
     enabled: false
     inputs:
