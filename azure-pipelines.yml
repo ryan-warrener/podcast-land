@@ -14,6 +14,7 @@
       command: 'build'
 
   - task: DotNetCoreCLI@2
+    enabled: false
     displayName: 'Publish'
     inputs:
       command: 'publish'
@@ -22,8 +23,9 @@
       zipAfterPublish: true
 
   - task: PublishBuildArtifacts@1
+    enabled: false
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)/s'
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
       ArtifactName: 'drop'
       publishLocation: 'Container'
 
@@ -33,6 +35,12 @@
       SourceFolder: 'codedeploy/'
       Contents: '**'
       TargetFolder: '$(Build.ArtifactStagingDirectory)/codedeploy/'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy/'
+      ArtifactName: 'codedeploy'
+      publishLocation: Container
 
   - task: ArchiveFiles@2
     enabled: false
