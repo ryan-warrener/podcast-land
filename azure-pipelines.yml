@@ -19,22 +19,22 @@
     inputs:
       command: 'publish'
       publishWebProjects: true
-      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)\\codedeploy\\app'
+      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/codedeploy/app'
       zipAfterPublish: false
 
   - task: CopyFiles@2
     inputs:
-      SourceFolder: 'codedeploy'
+      SourceFolder: 'codedeploy/'
       Contents: '**'
-      TargetFolder: '$(Build.ArtifactStagingDirectory)\\codedeploy'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/codedeploy/'
 
   - task: ArchiveFiles@2
     inputs:
-      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)\\codedeploy'
+      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/codedeploy/'
       includeRootFolder: true
       archiveType: 'tar'
       tarCompression: gz
-      archiveFile: '$(Build.ArtifactStagingDirectory)\\codedeploy.tar'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       replaceExistingArchive: true
 
   - task: CodeDeployDeployApplication@1
@@ -44,5 +44,5 @@
       applicationName: 'podcast-land'
       deploymentGroupName: 'linux-dg'
       deploymentRevisionSource: 'workspace'
-      revisionBundle: '$(Build.ArtifactStagingDirectory)//codedeploy.tar'
+      revisionBundle: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       bucketName: 'ryan-warrener-codedeploy'
