@@ -18,12 +18,12 @@
     inputs:
       command: 'publish'
       publishWebProjects: true
-      arguments: '--configuration $(buildConfiguration)  --output $(ArtifactStagingDirectory)'
+      arguments: '--configuration $(buildConfiguration)  --output $(Build.ArtifactStagingDirectory)'
       zipAfterPublish: false
 
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)/s'
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
       ArtifactName: 'drop'
       publishLocation: 'Container'
 
