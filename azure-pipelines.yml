@@ -24,7 +24,7 @@
       zipAfterPublish: false
 
   - task: PublishBuildArtifacts@1
-    enabled: false
+    enabled: true
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)/codedeploy/app'
       ArtifactName: 'app'
