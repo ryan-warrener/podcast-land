@@ -4,48 +4,57 @@
   "Parameters" : {
     "VPCID": {
       "Description" : "VPC ID, e.g. 'vpc-16438e72'",
-      "Type": "String"
+      "Type"        : "String",
+      "Default"     : "vpc-09a94774"
     },
 
     "myIP": {
       "Description" : "Enter your IP address in CIDR notation, e.g. 100.150.200.225/32",
-      "Type": "String"
+      "Type"        : "String",
+      "Default"     : "0.0.0.0/0"
     },
 
-    "InstanceProfile": {
-      "Description" : "Use the full ARN for SimpleCodeDeployInstanceProfile or AdvancedCodeDeployInstanceProfile",
-      "Type": "String"
+    "InstanceProfile" : {
+      "Description"   : "Use the full ARN for SimpleCodeDeployInstanceProfile or AdvancedCodeDeployInstanceProfile",
+      "Type"          : "String",
+      "Default"       : "SimpleCodeDeployInstanceProfile"
     },
 
     "KeyName" : {
-      "Description" : "Name of an existing EC2 KeyPair to enable SSH access to the instances",
-      "Type" : "AWS::EC2::KeyPair::KeyName",
-      "ConstraintDescription" : "The name of an existing EC2 KeyPair."
+      "Description"           : "Name of an existing EC2 KeyPair to enable SSH access to the instances",
+      "Type"                  : "AWS::EC2::KeyPair::KeyName",
+      "ConstraintDescription" : "The name of an existing EC2 KeyPair.",
+      "Default"               : "MyPrivateKey"
     },
     "AZ"  : {
       "Description" : "Comma delimited list of AvailabilityZones where the instances will be created",
-      "Type"        : "CommaDelimitedList"
+      "Type"        : "CommaDelimitedList",
+      "Default"     : "us-east-1a,us-east-1b,us-east-1c"
     },
 
     "PublicSubnets"  : {
       "Description" : "Comma delimited list of public subnets",
-      "Type"        : "CommaDelimitedList"
+      "Type"        : "CommaDelimitedList",
+      "Default"     : "subnet-5028f171,subnet-92b0d2df,subnet-46e63919"
     },
 
     "InstanceType" : {
-      "Description" : "Provide InstanceType to be used",
-      "Type" : "String",
+      "Description"           : "Provide InstanceType to be used",
+      "Type"                  : "String",
       "ConstraintDescription" : "Must be a valid EC2 instance type, such as t2.medium",
-      "Default": "t2.medium"
+      "Default"               : "t2.micro"
     },
 
     "LinuxAMIID" : {
       "Description" : "Linux AMI ID",
-      "Type" : "String"
+      "Type"        : "String",
+      "Default"     : "ami-08f3d892de259504d"
     },
+    
     "WindowsAMIID" : {
       "Description" : "Windows AMI ID",
-      "Type" : "String"
+      "Type"        : "String",
+      "Default"     : "ami-0f38562b9d4de0dfe"
     }
   },
   "Resources" : {
