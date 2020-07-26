@@ -426,7 +426,7 @@
     "Properties":{
       "DeploymentGroupName":"linux-dg",
       "ApplicationName": "podcast-land",
-      "AutoScalingGroups": [{"Ref":"LinuxWebASG"}],
+      "AutoScalingGroups": [ {"Ref": "LinuxWebASG"} ],
       "ServiceRoleArn": "arn:aws:iam::717576970747:role/CodeDeployServiceRole",
       "DeploymentStyle": {
         "DeploymentType":"IN_PLACE",
