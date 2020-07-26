@@ -128,14 +128,12 @@
                 "yum install httpd -y\n\n",
                 "yum install ruby\n\n",
                 "yum install aws-cli\n\n",
-				"yum install wget\n\n",
+				        "yum install wget\n\n",
                 "cd ~\n\n",
-				"wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install\n\n",
-                "aws s3 cp s3://aws-codedeploy-us-east-1/latest/install . --region us-east-1\n\n",
+				        "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install\n\n",
                 "chmod +x ./install\n\n",
                 "./install auto\n\n",
-                "echo 'hello world' > /var/www/html/index.html\n\n",
-                "hostname >> /var/www/html/index.html\n\n",
+                "service codedeploy-agent start\n\n",
                 "chkconfig httpd on\n\n",
                 "service httpd start\n\n"
               ]
