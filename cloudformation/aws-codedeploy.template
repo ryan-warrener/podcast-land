@@ -142,6 +142,8 @@
 				        "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install\n\n",
                 "chmod +x ./install\n\n",
                 "./install auto\n\n",
+                "echo 'healthy' > /var/www/html/monitor.html\n\n",
+                "hostname >> /var/www/html/monitor.html\n\n",
                 "service codedeploy-agent start\n\n",
                 "chkconfig httpd on\n\n",
                 "service httpd start\n\n"
@@ -232,7 +234,8 @@
 			"Port": "80",
 			"Protocol": "HTTP",
 			"TargetType": "instance",
-			"HealthCheckEnabled": "true",
+      "HealthCheckEnabled": "true",
+      "HealthCheckPath": "/monitor.html",
 			"HealthCheckIntervalSeconds": "15",
 			"HealthCheckTimeoutSeconds": "5",
 			"HealthyThresholdCount": "3",
