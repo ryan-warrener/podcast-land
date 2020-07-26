@@ -42,6 +42,16 @@
       archiveFile: '$(Build.ArtifactStagingDirectory)/codedeploy.tar'
       replaceExistingArchive: true
 
+  - task: CloudFormationCreateOrUpdateStack@1
+    displayName: 'update cloudformation stack'
+    inputs:
+      awsCredentials: 'AWS CodeDeploy Bucket'
+      regionName: 'us-east-1'
+      stackName: 'Infra'
+      templateSource: 'file'
+      templateFile: 'cloudformation/aws-codedeploy.template'
+      s3BucketName: 'ryan-warrener-codedeploy'
+
   - task: CodeDeployDeployApplication@1
     enabled: true
     displayName: 'AWS CodeDeploy'
