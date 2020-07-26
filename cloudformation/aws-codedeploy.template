@@ -429,7 +429,8 @@
       "AutoScalingGroups": [{"Ref": "LinuxWebASG"}],
       "ServiceRoleArn": "arn:aws:iam::717576970747:role/CodeDeployServiceRole",
       "DeploymentStyle": {
-        "DeploymentType":"IN_PLACE"
+        "DeploymentType":"IN_PLACE",
+        "DeploymentOption":"WITH_TRAFFIC_CONTROL"
       },
       "DeploymentConfigName":"CodeDeployDefault.OneAtATime",
       "LoadBalancerInfo": {
