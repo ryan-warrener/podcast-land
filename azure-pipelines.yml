@@ -9,13 +9,11 @@
 
   steps:
   - task: DotNetCoreCLI@2
-    enabled: true
     displayName: 'Build'
     inputs:
       command: 'build'
 
   - task: DotNetCoreCLI@2
-    enabled: true
     displayName: 'Publish app'
     inputs:
       command: 'publish'
@@ -24,7 +22,6 @@
       zipAfterPublish: false
 
   - task: CopyFiles@2
-    enabled: true
     displayName: 'copy codedeploy artifacts'
     inputs:
       SourceFolder: 'codedeploy/'
@@ -32,7 +29,6 @@
       TargetFolder: '$(Build.ArtifactStagingDirectory)/codedeploy/'
 
   - task: ArchiveFiles@2
-    enabled: true
     displayName: 'create deployment package archive'
     inputs:
       rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/codedeploy/'
@@ -53,7 +49,6 @@
       s3BucketName: 'ryan-warrener-codedeploy'
 
   - task: CodeDeployDeployApplication@1
-    enabled: true
     displayName: 'AWS CodeDeploy'
     inputs:
       awsCredentials: 'AWS CodeDeploy Bucket'
