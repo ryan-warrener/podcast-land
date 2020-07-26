@@ -236,9 +236,9 @@
 			"TargetType": "instance",
       "HealthCheckEnabled": "true",
       "HealthCheckPath": "/monitor.html",
-			"HealthCheckIntervalSeconds": "15",
+			"HealthCheckIntervalSeconds": "10",
 			"HealthCheckTimeoutSeconds": "5",
-			"HealthyThresholdCount": "3",
+			"HealthyThresholdCount": "2",
 			"VpcId": { "Ref": "VPCID" }
 		}
 	},
