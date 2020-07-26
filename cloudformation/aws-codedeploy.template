@@ -236,9 +236,12 @@
 			"TargetType": "instance",
       "HealthCheckEnabled": "true",
       "HealthCheckPath": "/monitor.html",
-			"HealthCheckIntervalSeconds": "10",
+			"HealthCheckIntervalSeconds": "6",
 			"HealthCheckTimeoutSeconds": "5",
-			"HealthyThresholdCount": "2",
+      "HealthyThresholdCount": "2",
+      "TargetGroupAttributes": [
+        {"deregistration_delay.timeout_seconds": "0"} 
+      ],
 			"VpcId": { "Ref": "VPCID" }
 		}
 	},
