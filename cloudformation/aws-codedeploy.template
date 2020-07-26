@@ -242,7 +242,7 @@
       "TargetGroupAttributes": [
         {
           "Key": "deregistration_delay.timeout_seconds",
-          "Value": "0"
+          "Value": "5"
         } 
       ],
 			"VpcId": { "Ref": "VPCID" }
