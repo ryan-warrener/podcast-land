@@ -420,7 +420,27 @@
 				"TargetGroupArn": { "Ref": "WindowsWebELBTargetGroup"}				
 			}]
 		}
-	}
+  },
+  "CodeDeploymentGroup": {
+    "Type" : "AWS::CodeDeploy::DeploymentGroup",
+    "Properties":{
+      "DeploymentGroupName":"linux-dg",
+      "ApplicationName": "podcast-land",
+      "AutoScalingGroups": [{"Ref": "LinuxWebASG"}],
+      "ServiceRoleArn": "arn:aws:iam::717576970747:role/CodeDeployServiceRole",
+      "DeploymentStyle": {
+        "DeploymentType":"IN_PLACE"
+      },
+      "DeploymentConfigName":"CodeDeployDefault.OneAtATime",
+      "LoadBalancerInfo": {
+        "TargetGroupInfoList": [{"Name":{"Ref":"LinuxWebELBTargetGroup"}}]
+      },
+      "AutoRollbackConfiguration":{
+        "Enabled": "true",
+        "Events": ["DEPLOYMENT_FAILURE"]
+      }
+    }
+  }
   },
   "Outputs" : {
     "LinuxWebFQDN" : { "Value": { "Fn::GetAtt" : [ "LinuxWebELB", "DNSName" ]} },
