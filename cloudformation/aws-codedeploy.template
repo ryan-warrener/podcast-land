@@ -50,7 +50,7 @@
       "Type"        : "String",
       "Default"     : "ami-08f3d892de259504d"
     },
-    
+
     "WindowsAMIID" : {
       "Description" : "Windows AMI ID",
       "Type"        : "String",
@@ -135,9 +135,9 @@
                 "#!/bin/bash\n\n",
                 "yum update -y\n\n",
                 "yum install httpd -y\n\n",
-                "yum install ruby\n\n",
-                "yum install aws-cli\n\n",
-				        "yum install wget\n\n",
+                "yum install ruby -y\n\n",
+                "yum install aws-cli -y\n\n",
+				        "yum install wget -y\n\n",
                 "cd ~\n\n",
 				        "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install\n\n",
                 "chmod +x ./install\n\n",
