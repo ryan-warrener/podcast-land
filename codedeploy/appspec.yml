@@ -4,6 +4,8 @@ os: linux
 files:
   - source: app/s/
     destination: /var/www/html
+  - source: infrastructure/dev/podcast-land.conf
+    destination: /etc/nginx/sites-available
 
 permissions:
   - object: /var/www/html
@@ -14,6 +16,7 @@ permissions:
 
 hooks:
   BeforeInstall:
+    - location: scripts/configure-nginx.sh
     - location: scripts/webserver-stop.sh
   AfterInstall:
     - location: scripts/webserver-start.sh

@@ -48,7 +48,7 @@
     "LinuxAMIID" : {
       "Description" : "Linux AMI ID",
       "Type"        : "String",
-      "Default"     : "ami-08f3d892de259504d"
+      "Default"     : "ami-0a0ddd875a1ea2c7f"
     },
 
     "WindowsAMIID" : {
@@ -133,20 +133,14 @@
               "",
               [
                 "#!/bin/bash\n\n",
-                "yum update -y\n\n",
-                "yum install httpd -y\n\n",
-                "yum install ruby -y\n\n",
-                "yum install aws-cli -y\n\n",
-				        "yum install wget -y\n\n",
-                "cd ~\n\n",
-				        "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install\n\n",
-                "chmod +x ./install\n\n",
-                "./install auto\n\n",
-                "echo 'healthy' > /var/www/html/monitor.html\n\n",
-                "hostname >> /var/www/html/monitor.html\n\n",
-                "service codedeploy-agent start\n\n",
-                "chkconfig httpd on\n\n",
-                "service httpd start\n\n"
+                "wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb\n\n",
+                "dpkg -i packages-microsoft-prod.deb\n\n",
+                "apt-get update\n\n",
+                "apt-get install -y apt-transport-https\n\n",
+                "apt-get update\n\n",
+                "apt-get install -y aspnetcore-runtime-3.1\n\n",    
+                "apt-get install -y nginx\n\n",     
+                "nginx\n\n"
               ]
 			]			
           }
