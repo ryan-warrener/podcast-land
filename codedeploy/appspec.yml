@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: app/s/
-    destination: /var/www/html
+    destination: /var/www/podcast-land
   - source: infrastructure/dev/podcast-land.conf
     destination: /etc/nginx/sites-available
 
