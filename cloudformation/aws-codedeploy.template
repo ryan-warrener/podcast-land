@@ -139,7 +139,8 @@
                 "apt-get install -y apt-transport-https\n\n",
                 "apt-get update\n\n",
                 "apt-get install -y aspnetcore-runtime-3.1\n\n",    
-                "apt-get install -y nginx\n\n",     
+                "apt-get install -y nginx\n\n",
+                "echo '<html>healthy!</html>' > /var/www/html/monitor.html\n\n",    
                 "nginx\n\n"
               ]
 			]			
