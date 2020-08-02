@@ -1,3 +1,3 @@
 #!/bin/bash
-#dotnet /var/www/podcast-land/podcast-land.dll
-#service nginx start
+sudo dotnet /var/www/podcast-land/podcast-land.dll
+sudo service nginx start
