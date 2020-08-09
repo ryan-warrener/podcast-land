@@ -6,6 +6,8 @@ files:
     destination: /var/www/podcast-land
   - source: infrastructure/dev/podcast-land.conf
     destination: /etc/nginx/sites-available
+  - source: scripts/podcast-land.service
+    destination: /etc/systemd/system
 
 permissions:
   - object: /var/www/html
