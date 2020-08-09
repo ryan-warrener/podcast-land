@@ -1,3 +1,3 @@
 #!/bin/bash
-dotnet /var/www/podcast-land/podcast-land.dll
+systemctl enable podcast-land.service
 service nginx start
