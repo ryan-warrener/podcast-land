@@ -288,6 +288,7 @@
         "TargetType": "instance",
         "HealthCheckEnabled": true,
         "HealthCheckPath": "/monitor.html",
+        "HealthCheckPort": "80",
         "HealthCheckIntervalSeconds": 6,
         "HealthCheckTimeoutSeconds": 5,
         "HealthyThresholdCount": 2,
