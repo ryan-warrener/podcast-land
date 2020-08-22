@@ -283,7 +283,7 @@
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
       "Properties": {
         "Name": "LinuxWebELBTargetGroup",
-        "Port": 80,
+        "Port": 8080,
         "Protocol": "HTTP",
         "TargetType": "instance",
         "HealthCheckEnabled": true,
